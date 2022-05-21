@@ -12,13 +12,16 @@ namespace IdentityTest.Data
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
-            
+           
         }
+
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<AppRole> AppRoles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            this.SeedRoles(builder);
+            SeedRoles(builder);
         }
 
         private void SeedRoles(ModelBuilder builder)
